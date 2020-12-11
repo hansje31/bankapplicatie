@@ -1,0 +1,93 @@
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\BankAdmin.exe.config
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\BankAdmin.exe
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\BankAdmin.pdb
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\MySql.Data.dll
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\Google.Protobuf.dll
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\Zstandard.Net.dll
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\Ubiety.Dns.Core.dll
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\Renci.SshNet.dll
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\System.Buffers.dll
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\System.Memory.dll
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\MySql.Data.xml
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\Google.Protobuf.xml
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\Renci.SshNet.xml
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\System.Buffers.xml
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\bin\Debug\System.Memory.xml
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csprojAssemblyReference.cache
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\obj\Debug\BankAdmin.exe.config
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\obj\Debug\BankAdmin.Form1.resources
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\obj\Debug\BankAdmin.Properties.Resources.resources
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csproj.GenerateResource.cache
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csproj.CoreCompileInputs.cache
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csproj.CopyComplete
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\obj\Debug\BankAdmin.exe
+C:\Users\nightsky42\source\repos\BankAdmin\BankAdmin\obj\Debug\BankAdmin.pdb
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\BankAdmin.exe.config
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\BankAdmin.exe
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\BankAdmin.pdb
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\Google.Protobuf.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\Zstandard.Net.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\BouncyCastle.Crypto.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\Ubiety.Dns.Core.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\Renci.SshNet.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\System.Buffers.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\K4os.Hash.xxHash.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\System.Memory.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\MySql.Data.xml
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\Google.Protobuf.xml
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\Renci.SshNet.xml
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\System.Buffers.xml
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4.xml
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\K4os.Hash.xxHash.xml
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\System.Memory.xml
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csprojAssemblyReference.cache
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.exe.config
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.AddUserForm.resources
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.Form1.resources
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.Properties.Resources.resources
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csproj.GenerateResource.cache
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csproj.CoreCompileInputs.cache
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csproj.CopyComplete
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.exe
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.pdb
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\BankAdmin.exe.config
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\BankAdmin.exe
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\BankAdmin.pdb
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\Google.Protobuf.dll
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\Zstandard.Net.dll
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\BouncyCastle.Crypto.dll
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\Ubiety.Dns.Core.dll
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\Renci.SshNet.dll
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\System.Buffers.dll
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4.dll
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\K4os.Hash.xxHash.dll
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\System.Memory.dll
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\MySql.Data.xml
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\Google.Protobuf.xml
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4.Streams.xml
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\Renci.SshNet.xml
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\System.Buffers.xml
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4.xml
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\K4os.Hash.xxHash.xml
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\bin\Debug\System.Memory.xml
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csprojAssemblyReference.cache
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\obj\Debug\BankAdmin.exe.config
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\obj\Debug\BankAdmin.AddUserForm.resources
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\obj\Debug\BankAdmin.Form1.resources
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\obj\Debug\BankAdmin.Properties.Resources.resources
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csproj.GenerateResource.cache
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csproj.CoreCompileInputs.cache
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csproj.CopyComplete
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\obj\Debug\BankAdmin.exe
+D:\School\Applicatieontwikkelaar-opleiding\project lvl 9 geldautomaat\applicatie\commit 1\BankAdmin\BankAdmin\obj\Debug\BankAdmin.pdb
