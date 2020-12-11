@@ -47,7 +47,13 @@ namespace BankAdmin // necessary code for application to run
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GetUserName();
+            var x = new User();
+            x.City = "a";
+            x.Email = "b";
+            x.FirstName = "you";
+            var reader = new ClassReader();
+            sql.InsertClass(typeof(User), x);
+             //GetUserName();
         }
 
         public void GetUserName()
@@ -62,11 +68,6 @@ namespace BankAdmin // necessary code for application to run
         {
             var AddUserDialog = new AddUserForm();
             AddUserDialog.ShowDialog();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

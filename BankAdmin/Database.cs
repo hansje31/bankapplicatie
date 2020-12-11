@@ -57,5 +57,18 @@ namespace BankAdmin
             }
             return result;
         }
+        public void CustomQuery(string query)
+        {
+            using (MySqlConnection connection = Connect())
+            {
+                using (MySqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandTimeout = 300;
+                    cmd.CommandText = query;
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
