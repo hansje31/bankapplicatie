@@ -16,16 +16,20 @@ namespace BankAdmin
             database = db;
         }
 
+        public User GetSingleUser(string id)
+        {
+            return User.LoadUser(database.SingleQueryToDictionary("select * from user where user_id = "+id, ClassReader.ClassToDictionary(typeof(User))));
+        }
+
         public List<string> GetUserName()
         {
-            return database.List("SELECT name from `users`", "name");
+            return database.List("SELECT voornaam from `user`", "voornaam");
         }
 
         public void InsertClass(Type t, object instance)
         {
-            var x = new ClassReader();
-            var collumns = x.AttributeList(t);
-            var values = x.ValuesList(t, instance);
+            var collumns = ClassReader.AttributeList(t);
+            var values = ClassReader.ValuesList(t, instance);
             var sb = new StringBuilder();
             var sb2 = new StringBuilder();
             foreach(string collumn in collumns)

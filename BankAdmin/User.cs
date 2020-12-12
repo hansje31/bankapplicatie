@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BankAdmin
 {
     [TableName("user")]
-    public class User
+    public class User //: IConstructor<User>
     {
-        [FieldName("user_id")]
+        [FieldName("user_id",true)]
         public int UserId { get; set; }
 
         [FieldName("voornaam")]
@@ -38,5 +39,23 @@ namespace BankAdmin
 
         [FieldName("telefoonnummer")]
         public int Telephone { get; set; }
+
+       public static User LoadUser(Dictionary<string,string> dict)
+       {
+           var user = new User();
+           PropertyInfo[] props = typeof(User).GetProperties();
+           foreach (PropertyInfo prop in props.Where(x => x.CustomAttributes.First().AttributeType == typeof(FieldName)))
+           {
+               if (prop.PropertyType == typeof(int))
+               {
+                   prop.SetValue(user, int.Parse(dict[prop.Name]));
+               }
+               else
+               {
+                   prop.SetValue(user, dict[prop.Name]);
+               }
+           }
+           return user;
+       }
     }
 }

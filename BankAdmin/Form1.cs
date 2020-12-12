@@ -43,6 +43,7 @@ namespace BankAdmin // necessary code for application to run
             database = new Database(connectionString);
             // quizz class can now make use of Database class to connect to database
             sql = new SQL(database);
+            GetUserNames();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -52,11 +53,13 @@ namespace BankAdmin // necessary code for application to run
             x.Email = "b";
             x.FirstName = "you";
             var reader = new ClassReader();
+            
             sql.InsertClass(typeof(User), x);
-             //GetUserName();
+
+            //GetUserNames();
         }
 
-        public void GetUserName()
+        public void GetUserNames()
         {
             // put 'name' data in database into combobox
             var GetUserName = sql.GetUserName();
