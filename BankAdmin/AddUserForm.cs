@@ -18,27 +18,68 @@ namespace BankAdmin
         }
         User user = new User();
         int page = 0;
+        bool error = false;
         private void button1_Click(object sender, EventArgs e)
         {
-            if (page == 0)
-            {
-                bool error = true;
-                while (error == true)
+                if (page == 0)
                 {
-                    error = false;
+                    user.FirstName = textBox1.Text;
+                    lblUserDataName.Text = "last name";
+                }
+                else if (page == 1)
+                {
+                    user.LastName = textBox1.Text;
+                    lblUserDataName.Text = "gender";
+                }
+                else if (page == 2)
+                {
+                    user.Gender = textBox1.Text;
+                    lblUserDataName.Text = "email";
+                }
+                else if (page == 3)
+                {
+                    user.Email = textBox1.Text;
+                    lblUserDataName.Text = "city";
+                }
+                else if (page == 4)
+                {
+                    user.City = textBox1.Text;
+                    lblUserDataName.Text = "postal code";
+                }
+                else if (page == 5)
+                {
+                    user.PostalCode = textBox1.Text;
+                    lblUserDataName.Text = "street";
+                }
+                else if (page == 6)
+                {
+                    user.Street = textBox1.Text;
+                    lblUserDataName.Text = "telephone";
+                }
+                else if (page == 7)
+                {
                     try
                     {
-                        user.UserId = int.Parse(textBox1.Text);
+                        user.Telephone = int.Parse(textBox1.Text);
+                        error = false;
+                        lblUserDataName.Text = "password";
                     }
                     catch
                     {
                         MessageBox.Show("Please type in a number");
+                        error = true;
                     }
                 }
-            }
-            else if (page == 1)
+                else if (page == 8)
+                {
+                    user.Password = textBox1.Text;
+                    Form1.globalUser = user;
+                    this.Close();
+                }
+            if (error == false)
             {
-
+                textBox1.Text = "";
+                page++;
             }
         }
     }

@@ -19,6 +19,7 @@ namespace BankAdmin // necessary code for application to run
         // between tese parantheses you can code your code here, in most cases you would put your global variables here
         Database database;
         SQL sql;
+        public static User globalUser;
 
         // variable containing usernames
         public string[] username = {};
@@ -56,7 +57,7 @@ namespace BankAdmin // necessary code for application to run
             
             sql.InsertClass(typeof(User), x);
 
-            //GetUserNames();
+            GetUserNames();
         }
 
         public void GetUserNames()
@@ -71,6 +72,8 @@ namespace BankAdmin // necessary code for application to run
         {
             var AddUserDialog = new AddUserForm();
             AddUserDialog.ShowDialog();
+            sql.InsertClass(typeof(User), globalUser);
+            GetUserNames();
         }
     }
 }

@@ -1,1 +1,1 @@
-﻿Persist Security Info=False;server=127.0.0.1;database=test;uid=root;pwd=""
+﻿Persist Security Info=False;server=localhost;database=test;uid=root;pwd=""

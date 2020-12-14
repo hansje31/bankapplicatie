@@ -36,7 +36,7 @@ namespace BankAdmin
 
         public List<string> List(string query, string collumn)
         {
-            // creates list
+            // creates list using only one specified collumn
             List<string> result = new List<string>();
             using (MySqlConnection connection = Connect())
             {
@@ -50,7 +50,6 @@ namespace BankAdmin
                     {
                         while (reader.Read())
                         {
-                            // voeg collumn1 enzo toe in de dictionary
                             result.Add(reader[collumn].ToString());
                         }
                     }
@@ -58,7 +57,6 @@ namespace BankAdmin
             }
             return result;
         }
-    
         public void CustomQuery(string query)
         {
             using (MySqlConnection connection = Connect())
