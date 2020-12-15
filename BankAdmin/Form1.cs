@@ -47,15 +47,15 @@ namespace BankAdmin // necessary code for application to run
             GetUserNames();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
-            var x = new User();
-            x.City = "a";
-            x.Email = "b";
-            x.FirstName = "you";
-            var reader = new ClassReader();
-            
-            sql.InsertClass(typeof(User), x);
+            //var x = new User();
+            //x.City = "a";
+            //x.Email = "b";
+            //x.FirstName = "you";
+            //var reader = new ClassReader();
+            //
+            //sql.InsertClass(typeof(User), x);
 
             GetUserNames();
         }
@@ -64,7 +64,7 @@ namespace BankAdmin // necessary code for application to run
         {
             // put 'name' data in database into combobox
             var GetUserName = sql.GetUserName();
-            comboBox1.DataSource = GetUserName.ToArray();
+            comboBoxUsers.DataSource = GetUserName.ToArray();
 
         }
 
@@ -74,6 +74,14 @@ namespace BankAdmin // necessary code for application to run
             AddUserDialog.ShowDialog();
             sql.InsertClass(typeof(User), globalUser);
             GetUserNames();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var GetUserName = sql.GetUserName();
+            comboBoxUsers.DataSource = GetUserName.ToArray().Where(name => name.Contains(txtSearch.Text)).ToArray();
+            comboBoxUsers.Focus();
+            comboBoxUsers.DroppedDown = true;
         }
     }
 }

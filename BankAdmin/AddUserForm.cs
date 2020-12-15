@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BCrypt.Net;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -72,7 +73,7 @@ namespace BankAdmin
                 }
                 else if (page == 8)
                 {
-                    user.Password = textBox1.Text;
+                    user.Password = BCrypt.Net.BCrypt.EnhancedHashPassword(textBox1.Text);
                     Form1.globalUser = user;
                     this.Close();
                 }

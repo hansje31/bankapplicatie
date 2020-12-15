@@ -51,7 +51,6 @@ C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\K4os.Compression.LZ4
 C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\K4os.Hash.xxHash.xml
 C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\System.Memory.xml
 C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csprojAssemblyReference.cache
-C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.exe.config
 C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.AddUserForm.resources
 C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.Form1.resources
 C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.Properties.Resources.resources
@@ -60,3 +59,9 @@ C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csproj.Cor
 C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csproj.CopyComplete
 C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.exe
 C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.pdb
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\BCrypt.Net-Next.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\System.Numerics.Vectors.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\BCrypt.Net-Next.xml
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\System.Numerics.Vectors.xml
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
