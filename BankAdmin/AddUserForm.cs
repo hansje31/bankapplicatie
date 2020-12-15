@@ -18,6 +18,7 @@ namespace BankAdmin
             InitializeComponent();
         }
         User user = new User();
+        BankDetails bank = new BankDetails();
         int page = 0;
         bool error = false;
         private void button1_Click(object sender, EventArgs e)
@@ -81,6 +82,14 @@ namespace BankAdmin
             {
                 textBox1.Text = "";
                 page++;
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                button1_Click(sender, null);
             }
         }
     }

@@ -14,7 +14,7 @@ namespace BankAdmin
         public int BankDetailsId { get; set; }
 
         [FieldName("bank_rekeningnummer")]
-        public int BankAccountNumber { get; set; }
+        public Int64 BankAccountNumber { get; set; }
 
         [FieldName("saldo")]
         public double BankBalance { get; set; }

@@ -9,7 +9,7 @@ namespace BankAdmin
 {
     public class ClassReader
     {
-        public static List<string> AttributeList(Type t)
+        public static List<string> FieldNames(Type t)
         {
             List<string> list = new List<string>();
             PropertyInfo[] props = t.GetProperties();
@@ -32,7 +32,7 @@ namespace BankAdmin
         {
             List<string> list = new List<string>();
             PropertyInfo[] props = t.GetProperties();
-            foreach (PropertyInfo prop in props.Where(x=> x.CustomAttributes.First().AttributeType == typeof(FieldName) && x.GetCustomAttribute<FieldName>().readOnly == false))
+            foreach (PropertyInfo prop in props.Where(x=> x.CustomAttributes.Count() != 0).Where(x=> x.CustomAttributes.First().AttributeType == typeof(FieldName) && x.GetCustomAttribute<FieldName>().readOnly == false))
             {
                 string value = prop.GetValue(instance)?.ToString() ?? "";
                 list.Add(value);

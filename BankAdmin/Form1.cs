@@ -19,6 +19,7 @@ namespace BankAdmin // necessary code for application to run
         // between tese parantheses you can code your code here, in most cases you would put your global variables here
         Database database;
         SQL sql;
+        Random rnd = new Random();
         public static User globalUser;
 
         // variable containing usernames
@@ -27,7 +28,6 @@ namespace BankAdmin // necessary code for application to run
         public Form1() // runs when the winForms GUI itself is being rendered...
         {
             InitializeComponent();
-
             // connection naar database maken
             string connectionString = "";
             try
@@ -44,6 +44,7 @@ namespace BankAdmin // necessary code for application to run
             database = new Database(connectionString);
             // quizz class can now make use of Database class to connect to database
             sql = new SQL(database);
+            var testUser = sql.GetBankUserJoins();
             GetUserNames();
         }
 
@@ -63,7 +64,7 @@ namespace BankAdmin // necessary code for application to run
         public void GetUserNames()
         {
             // put 'name' data in database into combobox
-            var GetUserName = sql.GetUserName();
+            var GetUserName = sql.GetUserNames();
             comboBoxUsers.DataSource = GetUserName.ToArray();
 
         }
@@ -73,15 +74,34 @@ namespace BankAdmin // necessary code for application to run
             var AddUserDialog = new AddUserForm();
             AddUserDialog.ShowDialog();
             sql.InsertClass(typeof(User), globalUser);
+            var userId = sql.LastId("user", "user_id");
+            var bankdetails = new BankDetails() { BankAccountNumber = GenerateBankNumber(), BankAccountPin = globalUser.Password, BankBalance = 0, UserId = userId };
+            sql.InsertClass(typeof(BankDetails), bankdetails);
             GetUserNames();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var GetUserName = sql.GetUserName();
-            comboBoxUsers.DataSource = GetUserName.ToArray().Where(name => name.Contains(txtSearch.Text)).ToArray();
+            var GetUserName = sql.GetUserNames();
+            if (txtSearch.Text != "")
+            {
+                comboBoxUsers.DataSource = GetUserName.ToArray().Where(name => name.Contains(txtSearch.Text)).ToArray();
+            }
+            else
+            {
+                comboBoxUsers.DataSource = GetUserName.ToArray();
+            }
             comboBoxUsers.Focus();
             comboBoxUsers.DroppedDown = true;
+        }
+        private Int64 GenerateBankNumber()
+        {
+            var sb = new StringBuilder();
+            for (int i = 0; i < 9; i++)
+            {
+                sb.Append(rnd.Next(0, 9));
+            }
+            return Convert.ToInt64(sb.ToString());
         }
     }
 }

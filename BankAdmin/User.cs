@@ -40,6 +40,7 @@ namespace BankAdmin
         [FieldName("telefoonnummer")]
         public int Telephone { get; set; }
 
+        public object JoinCollumns { get; set; }
        public static User LoadUser(Dictionary<string,string> dict)
        {
            var user = new User();
@@ -57,5 +58,28 @@ namespace BankAdmin
            }
            return user;
        }
+        public static User LoadUser(Dictionary<string, string> dict, params string[] customcols)
+        {
+            var user = new User();
+            PropertyInfo[] props = typeof(User).GetProperties();
+            foreach (PropertyInfo prop in props.Where(x=> x.CustomAttributes.Count() != 0).Where(x => x.CustomAttributes.First().AttributeType == typeof(FieldName)))
+            {
+                if (prop.PropertyType == typeof(int))
+                {
+                    prop.SetValue(user, int.Parse(dict[prop.Name]));
+                }
+                else
+                {
+                    prop.SetValue(user, dict[prop.Name]);
+                }
+            }
+            var CustomCollumns = new Dictionary<string, string>();
+            foreach(string cols in customcols)
+            {
+                CustomCollumns.Add(cols, dict[cols].ToString());
+            }
+            user.JoinCollumns = CustomCollumns;
+            return user;
+        }
     }
 }

@@ -70,11 +70,23 @@ namespace BankAdmin
                 }
             }
         }
-        
-        //creates a dictionary that matches the property names of a class to the values in the db, using specific queries such as users where id = 1;
-        public Dictionary<string,string> SingleQueryToDictionary(string query, Dictionary<string,string> dict)
+        public string SingleResultQuery(string query)
         {
-            Dictionary<string,string> result = new Dictionary<string, string>();
+            using (MySqlConnection connection = Connect())
+            {
+                using (MySqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandTimeout = 300;
+                    cmd.CommandText = query;
+                    return cmd.ExecuteScalar().ToString();
+                }
+            }
+        }
+        //creates a dictionary that matches the key names of a dictionary to the values in the db where the key names are the collumn names in the db, using specific queries such as users where id = 1;
+        public Dictionary<string, string> SingleQueryToDictionary(string query, Dictionary<string, string> dict)
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
             using (MySqlConnection connection = Connect())
             {
                 using (MySqlCommand cmd = connection.CreateCommand())
@@ -90,7 +102,68 @@ namespace BankAdmin
                         {
                             result.Add(dict[key], reader[key].ToString());
                         }
-                        
+
+                    }
+                }
+            }
+            return result;
+
+        }
+        public Dictionary<string, string> SingleQueryToDictionary(string query, Dictionary<string, string> dict, params string[] customcols)
+        {
+            Dictionary<string, string> result = new Dictionary<string, string>();
+            using (MySqlConnection connection = Connect())
+            {
+                using (MySqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandTimeout = 300;
+                    cmd.CommandText = query;
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        reader.Read();
+                        foreach (string key in dict.Keys)
+                        {
+                            result.Add(dict[key], reader[key].ToString());
+                        }
+                        foreach (string col in customcols)
+                        {
+                            result.Add(col, reader[col].ToString());
+                        }
+
+                    }
+                }
+            }
+            return result;
+        }
+        public List<Dictionary<string, string>> QueryToDictionary(string query, Dictionary<string, string> dict, params string[] customcols)
+        {
+            List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
+            using (MySqlConnection connection = Connect())
+            {
+                using (MySqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandTimeout = 300;
+                    cmd.CommandText = query;
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var tempDict = new Dictionary<string, string>();
+                            foreach (string key in dict.Keys)
+                            {
+                                tempDict.Add(dict[key], reader[key].ToString());
+                            }
+                            foreach (string col in customcols)
+                            {
+                                tempDict.Add(col, reader[col].ToString());
+                            }
+                            result.Add(tempDict);
+                        }
+
                     }
                 }
             }

@@ -9,7 +9,7 @@ namespace BankAdmin
     [System.AttributeUsage(System.AttributeTargets.Class)]
     public class TableName : System.Attribute
     {
-        private string value;
+        public string value;
         public TableName(string value)
         {
             this.value = value;
