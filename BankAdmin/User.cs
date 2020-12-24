@@ -64,13 +64,16 @@ namespace BankAdmin
             PropertyInfo[] props = typeof(User).GetProperties();
             foreach (PropertyInfo prop in props.Where(x=> x.CustomAttributes.Count() != 0).Where(x => x.CustomAttributes.First().AttributeType == typeof(FieldName)))
             {
-                if (prop.PropertyType == typeof(int))
+                if (dict.ContainsKey(prop.Name))
                 {
-                    prop.SetValue(user, int.Parse(dict[prop.Name]));
-                }
-                else
-                {
-                    prop.SetValue(user, dict[prop.Name]);
+                    if (prop.PropertyType == typeof(int))
+                    {
+                        prop.SetValue(user, int.Parse(dict[prop.Name]));
+                    }
+                    else
+                    {
+                        prop.SetValue(user, dict[prop.Name]);
+                    }
                 }
             }
             var CustomCollumns = new Dictionary<string, string>();

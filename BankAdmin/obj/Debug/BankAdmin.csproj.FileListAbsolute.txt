@@ -51,3 +51,4 @@ C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\BCrypt.Net-Next.xml
 C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\System.Numerics.Vectors.xml
 C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.EditUserForm.resources
+C:\Work\Naraty\Bank\BankAdmin\BankAdmin\BankAdmin\obj\Debug\BankAdmin.csprojAssemblyReference.cache

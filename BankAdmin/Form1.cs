@@ -21,6 +21,7 @@ namespace BankAdmin // necessary code for application to run
         SQL sql;
         Random rnd = new Random();
         public static User globalUser;
+        public List<User> databaseCache;
 
         // variable containing usernames
         public string[] username = {};
@@ -44,7 +45,7 @@ namespace BankAdmin // necessary code for application to run
             database = new Database(connectionString);
             // quizz class can now make use of Database class to connect to database
             sql = new SQL(database);
-            var testUser = sql.GetBankUserJoins();
+            databaseCache = sql.GetUserNamesBankNumbers();
             GetUserNames();
         }
 
@@ -64,8 +65,8 @@ namespace BankAdmin // necessary code for application to run
         public void GetUserNames()
         {
             // put 'name' data in database into combobox
-            var GetUserName = sql.GetUserNames();
-            comboBoxUsers.DataSource = GetUserName.ToArray();
+            databaseCache = sql.GetUserNamesBankNumbers();
+            comboBoxUsers.DataSource = databaseCache.Select(x=> x.FirstName).ToArray();
 
         }
 
@@ -82,14 +83,14 @@ namespace BankAdmin // necessary code for application to run
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var GetUserName = sql.GetUserNames();
             if (txtSearch.Text != "")
             {
-                comboBoxUsers.DataSource = GetUserName.ToArray().Where(name => name.Contains(txtSearch.Text)).ToArray();
+                //var test = databaseCache[0].JoinCollumns.GetType().GetProperties();
+                comboBoxUsers.DataSource = databaseCache.Where(name => name.FirstName.Contains(txtSearch.Text) || ((Dictionary<string,string>)name.JoinCollumns)["bank_rekeningnummer"].Contains(txtSearch.Text)).Select(x => x.FirstName).ToArray();
             }
             else
             {
-                comboBoxUsers.DataSource = GetUserName.ToArray();
+                comboBoxUsers.DataSource = databaseCache.Select(x=> x.FirstName).ToArray();
             }
             comboBoxUsers.Focus();
             comboBoxUsers.DroppedDown = true;

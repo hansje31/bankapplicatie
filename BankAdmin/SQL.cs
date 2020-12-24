@@ -20,20 +20,19 @@ namespace BankAdmin
         {
             return User.LoadUser(database.SingleQueryToDictionary("select * from user where user_id = "+id, ClassReader.ClassToDictionary(typeof(User))));
         }
-        public List<User> GetBankUserJoins()
+        public List<string> GetUserNames()
+        {
+            return database.List("select voornaam from user", "voornaam");
+        }
+        public List<User> GetUserNamesBankNumbers()
         {
             var result = new List<User>();
-            var users = database.QueryToDictionary("select * from user inner join bankdetails on user.user_id = bankdetails.user_id", ClassReader.ClassToDictionary(typeof(User)), "bank_rekeningnummer");
+            var users = database.QueryToDictionary("select user.user_id, voornaam, bank_rekeningnummer from user inner join bankdetails on user.user_id = bankdetails.user_id", new Dictionary<string, string>() { { "voornaam", "FirstName" }, { "user_id", "UserId" } }, "bank_rekeningnummer"); //you can use inline custom dictionaries to query specific collumns and save memory
             foreach(var user in users)
             {
                 result.Add(User.LoadUser(user,"bank_rekeningnummer"));
             }
             return result;
-        }
-
-        public List<string> GetUserNames()
-        {
-            return database.List("SELECT voornaam from `user`", "voornaam");
         }
         public string LastId(string table, string idColName)
         {
