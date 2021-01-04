@@ -10,7 +10,7 @@ namespace BankAdmin
     [TableName("user")]
     public class User //: IConstructor<User>
     {
-        [FieldName("user_id",true)]
+        [FieldName("user_id",true,true)]
         public int UserId { get; set; }
 
         [FieldName("voornaam")]

@@ -62,6 +62,25 @@ namespace BankAdmin
             string query = String.Format("INSERT INTO {0} ({1}) VALUES({2})",tablename,sb.ToString(),sb2.ToString());
             database.CustomQuery(query);
         }
+        public void EditClass(Type t, object instance)
+        {
+            Field Id = ClassReader.IdInfo(t, instance);
+            var collumns = ClassReader.FieldNames(t);
+            var values = ClassReader.ValuesList(t, instance);
+            var sb = new StringBuilder();
+            for (int i = 0; i < collumns.Count; i++)
+            {
+                sb.Append(collumns[i] + "=" + "'"+values[i]+"'" + ",");
+            }
+            sb.Remove(sb.Length - 1, 1);
+            var tablename = t.GetCustomAttributes(true).OfType<TableName>().First().value;
+            string query = String.Format("UPDATE {0} SET {1} WHERE {2}={3}", tablename, sb.ToString(), Id.Name, Id.Value);
+            database.CustomQuery(query);
+        }
+        public void UpdatePin(string newPin, string id)
+        {
+            database.CustomQuery(String.Format("UPDATE bankdetails SET pin='{0}' where user_id={1}",newPin,id));
+        }
 
     }
 }

@@ -55,6 +55,12 @@ namespace BankAdmin // necessary code for application to run
             var user = sql.GetSingleUser(id.ToString());
             var EditUserDialog = new EditUserForm(user);
             EditUserDialog.ShowDialog();
+            sql.EditClass(typeof(User), EditUserForm.globalUser);
+            if(EditUserForm.globalUser.Password!=null)
+            {
+                sql.UpdatePin(EditUserForm.globalUser.Password, EditUserForm.globalUser.UserId.ToString());
+            }
+            GetUserNames();
         }
 
         public void GetUserNames()

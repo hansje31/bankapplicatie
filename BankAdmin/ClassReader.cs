@@ -9,6 +9,16 @@ namespace BankAdmin
 {
     public class ClassReader
     {
+        public static Field IdInfo(Type t, object instace)
+        {
+            var result = new Field();
+            PropertyInfo[] props = t.GetProperties();
+            var idField = props.Where(x => x.CustomAttributes.Count() > 0).Where(x => x.GetCustomAttribute<FieldName>().isId == true).First();
+            result.Value = idField.GetValue(instace).ToString();
+            result.Name = idField.GetCustomAttribute<FieldName>().value;
+            return result;
+
+        } 
         public static List<string> FieldNames(Type t)
         {
             List<string> list = new List<string>();
@@ -61,5 +71,18 @@ namespace BankAdmin
             return dict;
         
         }
+
+    }
+    public struct Field
+    {
+        public Field(string name, string value)
+        {
+            Name = name;
+            Value = value;
+        }
+
+        public string Name { get; set; }
+        public string Value { get; set; }
+
     }
 }
