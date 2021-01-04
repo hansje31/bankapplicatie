@@ -64,7 +64,7 @@ namespace BankAdmin
                     {
                         user.Telephone = int.Parse(textBox1.Text);
                         error = false;
-                        lblUserDataName.Text = "password";
+                        lblUserDataName.Text = "pin";
                     }
                     catch
                     {

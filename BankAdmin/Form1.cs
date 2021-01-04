@@ -51,15 +51,10 @@ namespace BankAdmin // necessary code for application to run
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            //var x = new User();
-            //x.City = "a";
-            //x.Email = "b";
-            //x.FirstName = "you";
-            //var reader = new ClassReader();
-            //
-            //sql.InsertClass(typeof(User), x);
-
-            GetUserNames();
+            var id = ((int[])comboBoxUsers.Tag)[comboBoxUsers.SelectedIndex];
+            var user = sql.GetSingleUser(id.ToString());
+            var EditUserDialog = new EditUserForm(user);
+            EditUserDialog.ShowDialog();
         }
 
         public void GetUserNames()
@@ -67,6 +62,7 @@ namespace BankAdmin // necessary code for application to run
             // put 'name' data in database into combobox
             databaseCache = sql.GetUserNamesBankNumbers();
             comboBoxUsers.DataSource = databaseCache.Select(x=> x.FirstName).ToArray();
+            comboBoxUsers.Tag = databaseCache.Select(x => x.UserId).ToArray();
 
         }
 
@@ -85,12 +81,14 @@ namespace BankAdmin // necessary code for application to run
         {
             if (txtSearch.Text != "")
             {
-                //var test = databaseCache[0].JoinCollumns.GetType().GetProperties();
-                comboBoxUsers.DataSource = databaseCache.Where(name => name.FirstName.Contains(txtSearch.Text) || ((Dictionary<string,string>)name.JoinCollumns)["bank_rekeningnummer"].Contains(txtSearch.Text)).Select(x => x.FirstName).ToArray();
+                var result = databaseCache.Where(name => name.FirstName.Contains(txtSearch.Text) || ((Dictionary<string, string>)name.JoinCollumns)["bank_rekeningnummer"].Contains(txtSearch.Text));
+                comboBoxUsers.DataSource = result.Select(x => x.FirstName).ToArray();
+                comboBoxUsers.Tag = result.Select(x => x.UserId).ToArray();
             }
             else
             {
                 comboBoxUsers.DataSource = databaseCache.Select(x=> x.FirstName).ToArray();
+                comboBoxUsers.Tag = databaseCache.Select(x => x.UserId).ToArray();
             }
             comboBoxUsers.Focus();
             comboBoxUsers.DroppedDown = true;

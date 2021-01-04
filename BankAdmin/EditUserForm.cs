@@ -12,9 +12,23 @@ namespace BankAdmin
 {
     public partial class EditUserForm : Form
     {
-        public EditUserForm()
+        public static User globalUser;
+        public EditUserForm(User portableUser)
         {
             InitializeComponent();
+            globalUser = portableUser;
+        }
+
+        private void EditUserForm_Load(object sender, EventArgs e)
+        {
+            txtFirstName.Text = globalUser.FirstName;
+            txtLastName.Text = globalUser.LastName;
+            txtCity.Text = globalUser.City;
+            txtEmail.Text = globalUser.Email;
+            txtPostalCode.Text = globalUser.PostalCode;
+            txtStreet.Text = globalUser.Street;
+            txtTelephone.Text = globalUser.Telephone.ToString();
+            txtGender.Text = globalUser.Gender;
         }
     }
 }

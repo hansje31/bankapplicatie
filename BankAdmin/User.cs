@@ -16,7 +16,6 @@ namespace BankAdmin
         [FieldName("voornaam")]
         public string FirstName { get; set; }
 
-        [FieldName("wachtwoord")]
         public string Password { get; set; }
 
         [FieldName("achternaam")]
@@ -45,7 +44,7 @@ namespace BankAdmin
        {
            var user = new User();
            PropertyInfo[] props = typeof(User).GetProperties();
-           foreach (PropertyInfo prop in props.Where(x => x.CustomAttributes.First().AttributeType == typeof(FieldName)))
+           foreach (PropertyInfo prop in props.Where(x=> x.CustomAttributes.Count()>0).Where(x => x.CustomAttributes.First().AttributeType == typeof(FieldName)))
            {
                if (prop.PropertyType == typeof(int))
                {
