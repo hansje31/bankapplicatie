@@ -18,7 +18,7 @@ namespace BankAdmin
 
         public User GetSingleUser(string id)
         {
-            return User.LoadUser(database.SingleQueryToDictionary("select * from user where user_id = "+id, ClassReader.ClassToDictionary(typeof(User))));
+            return User.LoadUser(database.QueryToDictionary("select * from user where user_id = "+id, ClassReader.ClassToDictionary(typeof(User))));
         }
         public List<string> GetUserNames()
         {
@@ -27,7 +27,7 @@ namespace BankAdmin
         public List<User> GetUserNamesBankNumbers()
         {
             var result = new List<User>();
-            var users = database.QueryToDictionary("select user.user_id, voornaam, bank_rekeningnummer from user inner join bankdetails on user.user_id = bankdetails.user_id", new Dictionary<string, string>() { { "voornaam", "FirstName" }, { "user_id", "UserId" } }, "bank_rekeningnummer"); //you can use inline custom dictionaries to query specific collumns and save memory
+            var users = database.QueryToDictionaries("select user.user_id, voornaam, bank_rekeningnummer from user inner join bankdetails on user.user_id = bankdetails.user_id", new Dictionary<string, string>() { { "voornaam", "FirstName" }, { "user_id", "UserId" } }, "bank_rekeningnummer"); //you can use inline custom dictionaries to query specific collumns and save memory
             foreach(var user in users)
             {
                 result.Add(User.LoadUser(user,"bank_rekeningnummer"));

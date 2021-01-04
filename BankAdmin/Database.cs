@@ -84,7 +84,7 @@ namespace BankAdmin
             }
         }
         //creates a dictionary that matches the key names of a dictionary to the values in the db where the key names are the collumn names in the db, using specific queries such as users where id = 1;
-        public Dictionary<string, string> SingleQueryToDictionary(string query, Dictionary<string, string> dict)
+        public Dictionary<string, string> QueryToDictionary(string query, Dictionary<string, string> dict)
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
             using (MySqlConnection connection = Connect())
@@ -109,7 +109,7 @@ namespace BankAdmin
             return result;
 
         }
-        public Dictionary<string, string> SingleQueryToDictionary(string query, Dictionary<string, string> dict, params string[] customcols)
+        public Dictionary<string, string> QueryToDictionary(string query, Dictionary<string, string> dict, params string[] customcols)
         {
             Dictionary<string, string> result = new Dictionary<string, string>();
             using (MySqlConnection connection = Connect())
@@ -137,7 +137,7 @@ namespace BankAdmin
             }
             return result;
         }
-        public List<Dictionary<string, string>> QueryToDictionary(string query, Dictionary<string, string> dict, params string[] customcols)
+        public List<Dictionary<string, string>> QueryToDictionaries(string query, Dictionary<string, string> dict, params string[] customcols)
         {
             List<Dictionary<string, string>> result = new List<Dictionary<string, string>>();
             using (MySqlConnection connection = Connect())
