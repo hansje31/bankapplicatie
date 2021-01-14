@@ -22,6 +22,7 @@ namespace BankAdmin // necessary code for application to run
         Random rnd = new Random();
         public static User globalUser;
         public List<User> databaseCache;
+        public List<User> deletedDatabaseCache;
 
         // variable containing usernames
         public string[] username = {};
@@ -46,21 +47,39 @@ namespace BankAdmin // necessary code for application to run
             // quizz class can now make use of Database class to connect to database
             sql = new SQL(database);
             databaseCache = sql.GetUserNamesBankNumbers();
+            GetDeletedUserNames();
             GetUserNames();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            var id = ((int[])comboBoxUsers.Tag)[comboBoxUsers.SelectedIndex];
-            var user = sql.GetSingleUser(id.ToString());
-            var EditUserDialog = new EditUserForm(user);
-            EditUserDialog.ShowDialog();
-            sql.EditClass(typeof(User), EditUserForm.globalUser);
-            if(EditUserForm.globalUser.Password!=null)
+            if (comboBoxUsers.SelectedIndex != -1)
             {
-                sql.UpdatePin(EditUserForm.globalUser.Password, EditUserForm.globalUser.UserId.ToString());
+                var id = ((int[])comboBoxUsers.Tag)[comboBoxUsers.SelectedIndex];
+                var user = sql.GetSingleUser(id.ToString());
+                var EditUserDialog = new EditUserForm(user, sql);
+                var result = EditUserDialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    sql.EditClass(typeof(User), EditUserForm.globalUser);
+                    if (EditUserForm.globalUser.Password != null)
+                    {
+                        sql.UpdatePin(EditUserForm.globalUser.Password, EditUserForm.globalUser.UserId.ToString());
+                    }
+
+                }
+                if (result == DialogResult.Yes)
+                {
+                    GetUserNames();
+                    comboBoxUsers.Text = "";
+                    comboBoxUsers.SelectedIndex = -1;
+                }
+                else
+                {
+                    GetUserNames();
+                }
+                GetDeletedUserNames();
             }
-            GetUserNames();
         }
 
         public void GetUserNames()
@@ -71,7 +90,12 @@ namespace BankAdmin // necessary code for application to run
             comboBoxUsers.Tag = databaseCache.Select(x => x.UserId).ToArray();
 
         }
-
+        public void GetDeletedUserNames()
+        {
+            deletedDatabaseCache = sql.GetDeletedUserNamesBankNumbers();
+            comboBoxDeletedUsers.DataSource = deletedDatabaseCache.Select(x => x.FirstName).ToArray();
+            comboBoxDeletedUsers.Tag = deletedDatabaseCache.Select(x => x.UserId).ToArray();
+        }
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             var AddUserDialog = new AddUserForm();
@@ -107,6 +131,34 @@ namespace BankAdmin // necessary code for application to run
                 sb.Append(rnd.Next(0, 9));
             }
             return Convert.ToInt64(sb.ToString());
+        }
+
+        private void btnDeletedSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text != "")
+            {
+                var result = deletedDatabaseCache.Where(name => name.FirstName.Contains(txtSearchDeleted.Text) || ((Dictionary<string, string>)name.JoinCollumns)["bank_rekeningnummer"].Contains(txtSearchDeleted.Text));
+                comboBoxDeletedUsers.DataSource = result.Select(x => x.FirstName).ToArray();
+                comboBoxDeletedUsers.Tag = result.Select(x => x.UserId).ToArray();
+            }
+            else
+            {
+                comboBoxDeletedUsers.DataSource = deletedDatabaseCache.Select(x => x.FirstName).ToArray();
+                comboBoxDeletedUsers.Tag = deletedDatabaseCache.Select(x => x.UserId).ToArray();
+            }
+            comboBoxDeletedUsers.Focus();
+            comboBoxDeletedUsers.DroppedDown = true;
+        }
+
+        private void btnRecover_Click(object sender, EventArgs e)
+        {
+            if (comboBoxDeletedUsers.SelectedIndex != -1)
+            {
+                sql.ChangeAccountState(((int[])comboBoxDeletedUsers.Tag)[comboBoxDeletedUsers.SelectedIndex].ToString());
+                comboBoxDeletedUsers.SelectedIndex = -1;
+                GetDeletedUserNames();
+                GetUserNames();
+            }
         }
     }
 }

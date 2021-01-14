@@ -14,10 +14,13 @@ namespace BankAdmin
     public partial class EditUserForm : Form
     {
         public static User globalUser;
-        public EditUserForm(User portableUser)
+        SQL sql;
+        public EditUserForm(User portableUser, SQL _sql)
         {
             InitializeComponent();
             globalUser = portableUser;
+            this.sql = _sql;
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void EditUserForm_Load(object sender, EventArgs e)
@@ -52,6 +55,7 @@ namespace BankAdmin
             if (int.TryParse(txtTelephone.Text, out telephone) == true)
             {
                 globalUser.Telephone = telephone;
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
@@ -59,6 +63,17 @@ namespace BankAdmin
                 MessageBox.Show("Please type in a number in the telephone field");
             }
             
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var input = MessageBox.Show("Are you sure you want to delete this bank account?", "Delete bank account",MessageBoxButtons.YesNo);
+            if (input == DialogResult.Yes)
+            {
+                sql.ChangeAccountState(globalUser.UserId.ToString());
+                this.DialogResult = DialogResult.Yes;
+                this.Close();
+            }
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankAdmin
 {
-    class SQL
+    public class SQL
     {
 
         // make sure you can access/use the Database.cs files functions in order to 'launch' these SQL queries so you can change the database
@@ -27,10 +27,20 @@ namespace BankAdmin
         public List<User> GetUserNamesBankNumbers()
         {
             var result = new List<User>();
-            var users = database.QueryToDictionaries("select user.user_id, voornaam, bank_rekeningnummer from user inner join bankdetails on user.user_id = bankdetails.user_id", new Dictionary<string, string>() { { "voornaam", "FirstName" }, { "user_id", "UserId" } }, "bank_rekeningnummer"); //you can use inline custom dictionaries to query specific collumns and save memory
+            var users = database.QueryToDictionaries("select user.user_id, voornaam, bank_rekeningnummer from user inner join bankdetails on user.user_id = bankdetails.user_id AND bankdetails.deleted_state = 0", new Dictionary<string, string>() { { "voornaam", "FirstName" }, { "user_id", "UserId" } }, "bank_rekeningnummer"); //you can use inline custom dictionaries to query specific collumns and save memory
             foreach(var user in users)
             {
                 result.Add(User.LoadUser(user,"bank_rekeningnummer"));
+            }
+            return result;
+        }
+        public List<User> GetDeletedUserNamesBankNumbers()
+        {
+            var result = new List<User>();
+            var users = database.QueryToDictionaries("select user.user_id, voornaam, bank_rekeningnummer from user inner join bankdetails on user.user_id = bankdetails.user_id AND bankdetails.deleted_state = 1", new Dictionary<string, string>() { { "voornaam", "FirstName" }, { "user_id", "UserId" } }, "bank_rekeningnummer"); //you can use inline custom dictionaries to query specific collumns and save memory
+            foreach (var user in users)
+            {
+                result.Add(User.LoadUser(user, "bank_rekeningnummer"));
             }
             return result;
         }
@@ -79,7 +89,11 @@ namespace BankAdmin
         }
         public void UpdatePin(string newPin, string id)
         {
-            database.CustomQuery(String.Format("UPDATE bankdetails SET pin='{0}' where user_id={1}",newPin,id));
+            database.CustomQuery(String.Format("UPDATE bankdetails SET pin='{0}' WHERE user_id={1}", newPin, id));
+        }
+        public void ChangeAccountState(string id)
+        {
+            database.CustomQuery(String.Format("UPDATE bankdetails SET deleted_state=NOT deleted_state WHERE user_id={0}", id));
         }
 
     }

@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 
 namespace BankAdmin
 {
-    class Database
+    public class Database
     {
 
         // connectionstring in this file now has value of connectionstring from another file AKA now being called conn, that is being passed through in form1.cs
