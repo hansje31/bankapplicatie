@@ -81,7 +81,7 @@ namespace BankAdmin
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Name = "AddUserForm";
-            this.Text = "AddUserForm";
+            this.Text = "Add user";
             this.ResumeLayout(false);
             this.PerformLayout();
 

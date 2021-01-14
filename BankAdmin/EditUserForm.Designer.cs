@@ -250,7 +250,7 @@ namespace BankAdmin
             this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblFirstName);
             this.Name = "EditUserForm";
-            this.Text = "EditUserForm";
+            this.Text = "Edit user";
             this.Load += new System.EventHandler(this.EditUserForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
